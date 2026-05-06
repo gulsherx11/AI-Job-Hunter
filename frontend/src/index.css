@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #0F1117;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #1E2130; }
+::-webkit-scrollbar-thumb { background: #6C63FF; border-radius: 10px; }
+
+.glass {
+  background: rgba(30, 33, 48, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid #2D3250;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6C63FF, #4F8EF7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #6C63FF, #4F8EF7);
+  transition: opacity 0.2s;
+}
+
+.gradient-btn:hover { opacity: 0.85; }
+.gradient-btn:disabled { opacity: 0.4; cursor: not-allowed; }
