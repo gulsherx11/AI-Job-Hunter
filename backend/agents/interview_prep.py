@@ -17,22 +17,32 @@ def prepare_interview(state: AgentState) -> AgentState:
     COMPANY CONTEXT:
     {state['company_research']}
     
-    Generate:
+    Generate with PROPER FORMATTING (use blank lines between each section):
     
     ## Top 5 Technical Questions
-    For each:
+    For each question, format EXACTLY like this with blank lines:
+
     - **Q:** The question
+
     - **Why asked:** One sentence
+
     - **Strong answer:** Based on candidate's actual resume experience
+
+    [BLANK LINE BEFORE NEXT QUESTION]
     
     ## Top 3 Behavioral Questions
-    For each:
-    - **Q:** The question  
+    For each question, format EXACTLY like this with blank lines:
+
+    - **Q:** The question
+
     - **STAR Answer:** Using candidate's real experience
+
+    [BLANK LINE BEFORE NEXT QUESTION]
     
     ## 3 Smart Questions to Ask the Interviewer
     Reference specific company details from the research.
     
+    IMPORTANT: Add blank lines between Q, Why asked, and Strong answer. Do NOT make it look like a paragraph.
     Make all answers specific to the candidate's actual projects and experience.
     """
 
