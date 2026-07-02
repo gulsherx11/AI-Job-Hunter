@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Send, Bot, User, RotateCcw, AlertCircle, Play } from 'lucide-react'
 
 export default function ChatBot({ state }) {
+  const apiUrl = import.meta.env.VITE_API_URL
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -19,7 +20,7 @@ export default function ChatBot({ state }) {
     setLoading(true)
     setError(null)
     try {
-      const res = await axios.post('http://localhost:8000/api/chat', {
+      const res = await axios.post(`${apiUrl}/api/chat`, {
         message: '',
         history: [],
         state
@@ -44,7 +45,7 @@ export default function ChatBot({ state }) {
     setError(null)
 
     try {
-      const res = await axios.post('http://localhost:8000/api/chat', {
+      const res = await axios.post(`${apiUrl}/api/chat`, {
         message: input,
         history: messages,
         state

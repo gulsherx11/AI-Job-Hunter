@@ -11,6 +11,7 @@ import {
 
 export default function Home() {
   const navigate = useNavigate()
+  const apiUrl = import.meta.env.VITE_API_URL
   const [jobs, setJobs] = useState([])
   const [filteredJobs, setFilteredJobs] = useState([])
   const [selectedJob, setSelectedJob] = useState(null)
@@ -59,7 +60,7 @@ export default function Home() {
     setLoadingJobs(true)
     setError(null)
     try {
-      const res = await axios.get('http://localhost:8000/api/jobs', {
+      const res = await axios.get(`${apiUrl}/api/jobs`, {
         params: { location, remote: remoteOnly }
       })
       setJobs(res.data.jobs)
@@ -92,7 +93,7 @@ export default function Home() {
       formData.append('job_apply_link', selectedJob.apply_link || '')
       formData.append('resume_pdf', resume)
 
-      const res = await axios.post('http://localhost:8000/api/generate', formData)
+      const res = await axios.post(`${apiUrl}/api/generate`, formData)
       clearInterval(interval)
       setCurrentStep(5)
       
