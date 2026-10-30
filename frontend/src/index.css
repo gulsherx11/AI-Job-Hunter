@@ -97,3 +97,22 @@ body {
 .theme-light .bg-card { background-color: rgb(250 251 252) !important; }
 .theme-light input,
 .theme-light textarea { color: #171719 !important; }
+
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+  #resume-export-container {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+}

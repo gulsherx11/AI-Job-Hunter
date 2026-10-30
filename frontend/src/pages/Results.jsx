@@ -99,7 +99,8 @@ export default function Results() {
         <ResultCard
           title="ATS-Optimized Resume"
           content={result.rewritten_resume}
-          downloadName={`resume_${result.company_name}.txt`}
+          downloadName={`resume_${result.company_name}`}
+          isResume={true}
         />
       )}
       {activeTab === 'cover' && (

@@ -25,9 +25,24 @@ def rewrite_resume(state: AgentState) -> AgentState:
     4. Quantify achievements where possible
     5. NEVER fabricate experience — only reframe what exists
     
-    Keep all sections: Summary, Skills, Experience, Education.
-    Write the summary specifically for this role and company.
-    Return the complete rewritten resume in clean plain text.
+    FORMAT REQUIREMENTS (Strict Standard Markdown):
+    - Start with Candidate Name as H1: # Candidate Name
+    - Follow immediately with contact info line: email@example.com | +123456789 | Location | LinkedIn | GitHub
+    - Use H2 for main section headers:
+      ## PROFESSIONAL SUMMARY
+      ## TECHNICAL SKILLS
+      ## WORK EXPERIENCE
+      ## PROJECTS
+      ## EDUCATION
+    - Under WORK EXPERIENCE and PROJECTS, use H3 for each role:
+      ### Job Title — Company Name
+      *Location | Dates or Present*
+      - Strong action-oriented bullet point with quantified metrics
+      - Another relevant achievement bullet
+    - Under TECHNICAL SKILLS, group skills with bold categories:
+      - **Languages & Frameworks:** Python, TypeScript, React...
+      - **Tools & Cloud:** Docker, AWS, Git...
+    - Do NOT wrap your output in ```markdown or ``` code blocks. Output raw markdown directly.
     """
 
     state["rewritten_resume"] = ask_llm(prompt)
