@@ -1,10 +1,6 @@
-from groq import Groq
 from state import AgentState
-import os
-from dotenv import load_dotenv
+from tools.llm import ask_llm
 
-load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def get_system_prompt(state: AgentState) -> str:
     return f"""
@@ -33,17 +29,9 @@ def chat(
     chat_history: list,
     state: dict
 ) -> str:
-    messages = [{"role": "system", "content": get_system_prompt(state)}]
-    messages.extend(chat_history)
-
-    if user_message:
-        messages.append({"role": "user", "content": user_message})
-
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=messages,
-        max_tokens=500,
-        temperature=0.7
+    system_prompt = get_system_prompt(state)
+    return ask_llm(
+        prompt=user_message or "Continue the interview.",
+        system=system_prompt,
+        history=chat_history,
     )
-
-    return response.choices[0].message.content.strip()

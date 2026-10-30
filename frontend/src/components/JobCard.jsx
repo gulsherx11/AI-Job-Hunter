@@ -1,4 +1,4 @@
-import { MapPin, Building2, Clock, Wifi, ExternalLink } from 'lucide-react'
+import { MapPin, Clock, Wifi, ExternalLink } from 'lucide-react'
 
 export default function JobCard({ job, onSelect, isSelected }) {
   const timeAgo = (dateStr) => {
@@ -15,9 +15,9 @@ export default function JobCard({ job, onSelect, isSelected }) {
   return (
     <div
       onClick={() => onSelect(job)}
-      className={`bg-card rounded-xl p-5 border cursor-pointer transition-all duration-200
-        hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5
-        ${isSelected ? 'border-accent shadow-lg shadow-accent/10' : 'border-border'}`}
+      className={`bg-card rounded-lg p-5 border cursor-pointer transition-all duration-200
+        hover:border-accent/60 hover:shadow-md
+        ${isSelected ? 'border-accent shadow-md' : 'border-border'}`}
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-3 mb-3">
@@ -59,7 +59,7 @@ export default function JobCard({ job, onSelect, isSelected }) {
           </span>
         )}
         {job.type && (
-          <span className="text-xs text-muted bg-background px-2 py-0.5 rounded-full border border-border">
+          <span className="text-xs text-muted bg-card px-2 py-0.5 rounded-full border border-border">
             {job.type}
           </span>
         )}
@@ -78,6 +78,20 @@ export default function JobCard({ job, onSelect, isSelected }) {
         <p className="text-success text-xs font-medium mt-2">
           ${job.salary_min?.toLocaleString()} — ${job.salary_max?.toLocaleString()}
         </p>
+      )}
+
+      {job.apply_link && (
+        <div className="mt-3 pt-3 border-t border-border">
+          <a
+            href={job.apply_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-2 text-xs text-accent hover:text-white transition-colors"
+          >
+            Apply on job site <ExternalLink size={12} />
+          </a>
+        </div>
       )}
     </div>
   )

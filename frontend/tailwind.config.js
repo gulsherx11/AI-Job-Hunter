@@ -4,16 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#0F1117",
-        card: "#1E2130",
-        border: "#2D3250",
-        accent: "#6C63FF",
-        success: "#00D9A6",
-        muted: "#8892A4",
-        danger: "#FF6B6B",
+        background: "rgb(var(--background) / <alpha-value>)",
+        card: "rgb(var(--card) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        success: "rgb(var(--success) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        danger: "rgb(var(--danger) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
       }
     },
   },

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Send, Bot, User, RotateCcw, AlertCircle, Play } from 'lucide-react'
 
 export default function ChatBot({ state }) {
-  const apiUrl = import.meta.env.VITE_API_URL
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
